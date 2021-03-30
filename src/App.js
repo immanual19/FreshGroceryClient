@@ -25,7 +25,7 @@ function App() {
     <SearchBar></SearchBar>
         <Switch>
           <Route exact path="/">
-            <Shop></Shop>
+          <Shop></Shop>
           </Route>
           <Route path="/login">
           <SignIn></SignIn>

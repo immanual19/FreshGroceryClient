@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Button } from '@material-ui/core';
+import './CheckoutProduct.css';
 const useStyles = makeStyles({
     table: {
       minWidth: 650,
@@ -27,7 +28,7 @@ const CheckoutProduct = () => {
     },[])
 
     const {name,price}=singleProduct;
-
+    
     const processOrder=()=>{
       const userFromLocalStorage=JSON.parse(localStorage.getItem('freshGroceryUser'));
       const orderInfo={customerName:userFromLocalStorage.name,customerEmail:userFromLocalStorage.email,productName:name,productPrice:price, dateOrdered: new Date()
@@ -40,9 +41,20 @@ const CheckoutProduct = () => {
       },
       body: JSON.stringify(orderInfo)
     })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data){
+        alert('Order placed Successfully');
+      }
+    })
+    .catch(err=>{
+      alert('Error. Order could not be placed');
+    })
     console.log("Order Summary is: ",orderInfo);
   }
     return (
+      <div className="checkout-product">
+      <h1>Checkout</h1>
         <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -58,13 +70,14 @@ const CheckoutProduct = () => {
               
               <TableCell align="left">{name}</TableCell>
               <TableCell align="right">1</TableCell>
-              <TableCell align="right">{price}</TableCell>
+              <TableCell align="right">${price}</TableCell>
             </TableRow>
             
         </TableBody>
       </Table>
-      <Button onClick={processOrder}>Checkout</Button>
+      <Button style={{float:'right'}} onClick={processOrder} variant="contained" color="secondary">Checkout</Button>
     </TableContainer>
+    </div>
     );
 }
 export default CheckoutProduct;
