@@ -15,6 +15,7 @@ import SignUp from './components/SignUp/SignUp';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import CheckoutProduct from './components/CheckoutProduct/CheckoutProduct';
 import AddProduct from './components/AddProduct/AddProduct';
+import OrderHistory from './components/OrderHistory/OrderHistory';
 function App() {
   return (
     <div className="App">
@@ -32,8 +33,11 @@ function App() {
           <Route path="/signup">
           <SignUp></SignUp>
           </Route>
-          <PrivateRoute path="/checkoutproduct">
+          <PrivateRoute path="/checkoutproduct/:pdId">
             <CheckoutProduct></CheckoutProduct>
+          </PrivateRoute>
+          <PrivateRoute path="/orderhistory">
+          <OrderHistory></OrderHistory>
           </PrivateRoute>
           <PrivateRoute path="/admin">
             <AddProduct></AddProduct>

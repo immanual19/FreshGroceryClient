@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import loginImage from '../../icons/avatarFace.png';
 import './Header.css';
 const Header = () => {
-  let parsedFreshGroceryUser={name:'',email:'',isSignedIn:false};
+  let parsedFreshGroceryUser={};
 if(localStorage.getItem('freshGroceryUser')===null){
     const newUser={};
     localStorage.setItem('freshGroceryUser',JSON.stringify(newUser));
 }
+
 else{
   const getUserInfo=localStorage.getItem('freshGroceryUser');
   const parsedGetUserInfo=JSON.parse(getUserInfo);
@@ -17,6 +18,8 @@ else{
   parsedFreshGroceryUser.isSignedIn=parsedGetUserInfo.isSignedIn;
   
 }
+
+
 const handleLogOut=()=>{
 const loggedOutUserInfo={};
 localStorage.setItem('freshGroceryUser',JSON.stringify(loggedOutUserInfo));
@@ -34,7 +37,8 @@ window.location.reload();
       <Link to="/"><li class="nav-item">
           <a class="nav-link" href="#">Home</a>
         </li></Link>
-        <Link to="/checkoutproduct"><li class="nav-item">
+
+        <Link to={'/orderhistory'}><li class="nav-item">
           <a class="nav-link" href="#">Orders</a>
         </li></Link>
         <Link to="/admin"><li class="nav-item">
