@@ -69,8 +69,9 @@ const handleFbSignIn=()=>{
     parsedGetUserInfo.isSignedIn=true;
     localStorage.setItem('freshGroceryUser',JSON.stringify(parsedGetUserInfo));
     console.log(user);
-    //window.location.reload();
+   
     history.replace(from);
+    window.location.reload();
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var accessToken = credential.accessToken;
     // ...
@@ -108,6 +109,7 @@ const handleGoogleSignIn=()=>{
     console.log("google user is: ",user);
     //window.location.reload();
     history.replace(from);
+    window.location.reload();
     // ...
   }).catch((error) => {
     // Handle Errors here.

@@ -75,6 +75,7 @@ export default function SignUp() {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var accessToken = credential.accessToken;
     history.replace(from);
+    window.location.reload();
     // ...
   })
   .catch((error) => {
@@ -110,6 +111,7 @@ const handleGoogleSignIn=()=>{
     console.log("google user is: ",user);
     history.replace(from);
     //window.location.reload();
+    window.location.reload();
     // ...
   }).catch((error) => {
     // Handle Errors here.
