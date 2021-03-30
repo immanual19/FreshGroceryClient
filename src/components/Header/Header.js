@@ -31,15 +31,15 @@ window.location.reload();
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+      <Link to="/"><li class="nav-item">
           <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
+        </li></Link>
+        <Link to="/checkoutproduct"><li class="nav-item">
           <a class="nav-link" href="#">Orders</a>
-        </li>
-        <li class="nav-item">
+        </li></Link>
+        <Link to="/admin"><li class="nav-item">
           <a class="nav-link" href="#">Admin</a>
-        </li>
+        </li></Link>
         <li class="nav-item">
           <a class="nav-link" href="#">Deals</a>
         </li>

@@ -1,0 +1,26 @@
+import userEvent from '@testing-library/user-event';
+import React, { useContext } from 'react';
+import { Redirect, Route } from 'react-router';
+const PrivateRoute = ({ children, ...rest }) => {
+    const currentUser=localStorage.getItem('freshGroceryUser');
+    const parsedCurrentUser=JSON.parse(currentUser);
+    return (
+        <Route
+      {...rest}
+      render={({ location }) =>
+        parsedCurrentUser.isSignedIn ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
+    );
+};
+
+export default PrivateRoute;
