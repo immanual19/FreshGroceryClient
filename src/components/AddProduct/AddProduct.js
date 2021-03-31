@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import './AddProduct.css';
 const AddProduct = () => {
     
     const { register, handleSubmit, errors } = useForm();
@@ -35,18 +36,16 @@ const AddProduct = () => {
     }
     console.log(errors);
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-    
-      <input name="name" defaultValue="" ref={register} />
-      <br/>
-      <input name="weight" defaultValue="" ref={register} />
-      <br/>
-      <input name="price" defaultValue="" ref={register} />
-      <br/>
-      <input name="exampleRequired" type="file" onChange={handleImageUpload} />
-      <br/>
-      <input type="submit" />
-    </form>
+      <div className="add-product-div">
+      <h1>Add Product</h1>
+    <form onSubmit={handleSubmit(onSubmit)}>
+    <input style={{margin:'5%'}} name="name" placeholder="Product Name" defaultValue="" ref={register} size="40"/>
+    <input name="weight" placeholder="Product Weight" defaultValue="" ref={register} size="40"/><br/>
+    <input style={{margin:'5%'}} defaultValue="" placeholder="Product Price" name="price" ref={register} size="40"/>
+    <input type="file"  name="exampleRequired" onChange={handleImageUpload} size="40"/><br/>
+    <input className="save-button" type="submit" value="Save"/>
+  </form>
+</div>
     );
 };
 

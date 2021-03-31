@@ -1,0 +1,20 @@
+.add-product-div{
+    float: right;
+    padding-left: 5%;
+    margin-right: 2%;
+    margin-top: 10%;
+    width: 70%;
+    border: 1px solid black;
+    height: 100%;
+    border: 1px solid black;
+
+}
+
+.save-button{
+    float: right;
+    background-color: aqua;
+    border-radius: 10px;
+    width: 20%;
+    height: 40px;
+    border:0ch;
+}
