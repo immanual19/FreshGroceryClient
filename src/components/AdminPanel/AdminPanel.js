@@ -124,13 +124,13 @@ const handleClick=(index)=>{
   const container = window !== undefined ? () => window().document.body : undefined;
   const [allProducts,setAllProducts]=useState([]);
   useEffect(()=>{
-      fetch('http://localhost:8080/products')
+      fetch('https://shrouded-castle-21272.herokuapp.com/products')
       .then(res=>res.json())
       .then(data=>setAllProducts(data))
   },[])
   const productDelete=(id)=>{
       console.log('This product will be deleted: ',id);
-      fetch(`http://localhost:8080/deletesingleproduct/${id}`,{
+      fetch(`https://shrouded-castle-21272.herokuapp.com/deletesingleproduct/${id}`,{
           method: 'DELETE'
       })
       .then(res=>res.json())
@@ -146,7 +146,7 @@ const handleClick=(index)=>{
     const productData={...data};
     productData.imageURL=imageURL;
     console.log(productData);
-    const url='http://localhost:8080/addProduct';
+    const url='https://shrouded-castle-21272.herokuapp.com/addProduct';
     fetch(url,{
         method: 'POST',
         headers:{

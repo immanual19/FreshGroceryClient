@@ -21,7 +21,7 @@ const CheckoutProduct = () => {
     const {pdId}=useParams();
     const [singleProduct,setSingleProduct]=useState([]);
     useEffect(()=>{
-        const url=`http://localhost:8080/singleproduct/${pdId}`;
+        const url=`https://shrouded-castle-21272.herokuapp.com/singleproduct/${pdId}`;
         fetch(url)
         .then(res=>res.json())
         .then(data=>setSingleProduct(data))
@@ -34,7 +34,7 @@ const CheckoutProduct = () => {
       const orderInfo={customerName:userFromLocalStorage.name,customerEmail:userFromLocalStorage.email,productName:name,productPrice:price, dateOrdered: new Date()
     };
 
-    fetch('http://localhost:8080/processorder',{
+    fetch('https://shrouded-castle-21272.herokuapp.com/processorder',{
       method:'POST',
       headers:{
         'Content-Type':'application/json'

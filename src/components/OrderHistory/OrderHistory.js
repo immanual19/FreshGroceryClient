@@ -19,7 +19,7 @@ const OrderHistory = () => {
     const myInfo=JSON.parse(localStorage.getItem('freshGroceryUser'));
     console.log("History: ",myInfo);
     useEffect(()=>{
-        fetch(`http://localhost:8080/myorderhistory/${myInfo.email}`)
+        fetch(`https://shrouded-castle-21272.herokuapp.com/myorderhistory/${myInfo.email}`)
         .then(res=>res.json())
         .then(data=>setMyOrderHistory(data))
     },[])

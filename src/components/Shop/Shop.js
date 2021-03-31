@@ -6,7 +6,7 @@ const Shop = () => {
   
 
     useEffect(()=>{
-        fetch('http://localhost:8080/products')
+        fetch('https://shrouded-castle-21272.herokuapp.com/products')
         .then(res=>res.json())
         .then(data=>setProducts(data))
     },[])

@@ -14,9 +14,9 @@ import NotFound from './components/NotFound/NotFound';
 import SignUp from './components/SignUp/SignUp';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import CheckoutProduct from './components/CheckoutProduct/CheckoutProduct';
-import AddProduct from './components/AddProduct/AddProduct';
+
 import OrderHistory from './components/OrderHistory/OrderHistory';
-import ModifyProduct from './components/ModifyProduct/ModifyProduct';
+
 import AdminPanel from './components/AdminPanel/AdminPanel';
 function App() {
   return (
