@@ -1,3 +1,9 @@
 .order-history{
     margin: 5%;
 }
+.loader{
+    position: absolute;
+   color: White;
+  top: 50%;
+  left: 50%;
+}

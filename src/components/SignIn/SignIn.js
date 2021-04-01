@@ -17,6 +17,9 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebase.config';
 import { useHistory, useLocation } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import './SignIn.css';
 import {
     BrowserRouter as Router,
     Switch,
@@ -183,13 +186,11 @@ const handleGoogleSignIn=()=>{
         </form>
       </div>
       <br/>
-      <p style={{textAlign:'center', color:'lightgray',fontSize:'30px'}}>Or</p>
-      <div onClick={handleFbSignIn} style={{display:'flex', border:'1px solid lightgray', borderRadius:'20px', cursor:'pointer'}}>
-      <img style={{width:'15%',height:'15%',marginTop:'10px'}} src={facebook} alt=""/><p style={{marginTop:'7%', float:'right', fontSize:'20px'}}>Continue With Facebook</p>
-      </div>
-      <div onClick={handleGoogleSignIn} style={{display:'flex', border:'1px solid lightgray', borderRadius:'20px', cursor:'pointer'}}>
-      <img style={{width:'15%',height:'15%',marginTop:'10px'}} src={google} alt=""/><p style={{marginTop:'7%', float:'right', fontSize:'20px'}}>Continue With Google</p>
-      </div>
+      <p style={{textAlign:'center', color:'lightgray',fontSize:'20px'}}>Or</p>
+      
+      <p onClick={handleFbSignIn} className="SignInWithFb"><FontAwesomeIcon icon={faFacebook} /> Sign in with Facebook</p>
+        
+        <p onClick={handleGoogleSignIn} className="SignInWithGoogle"><FontAwesomeIcon icon={faGoogle} /> Sign in with Google</p>
     </Container>
   );
 }
