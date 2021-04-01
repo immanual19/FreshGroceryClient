@@ -28,6 +28,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Link } from "react-router-dom";
+import { Spinner } from 'react-bootstrap';
 const drawerWidth = 240;
 const useStyles1 = makeStyles({
   table: {
@@ -118,10 +119,15 @@ const handleClick=(index)=>{
 
   const container = window !== undefined ? () => window().document.body : undefined;
   const [allProducts,setAllProducts]=useState([]);
+  const [loaded,isLoaded]=useState(false);
+  const [imageConverted,isImageConverted]=useState(false);
   useEffect(()=>{
       fetch('https://shrouded-castle-21272.herokuapp.com/products')
       .then(res=>res.json())
-      .then(data=>setAllProducts(data))
+      .then(data=>{
+        setAllProducts(data);
+        isLoaded(true);
+      })
   },[])
   const productDelete=(id)=>{
       
@@ -170,6 +176,7 @@ const handleClick=(index)=>{
     .then(function (response) {
         
       setIMageURL(response.data.data.display_url);
+      isImageConverted(true);
     })
     .catch(function (error) {
       
@@ -225,32 +232,40 @@ const handleClick=(index)=>{
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <div id="show-all-product-for-editing">
-        <TableContainer component={Paper}>
-      <Table className={classes1.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Weight</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Action</TableCell>
+
+{
+  loaded ? (
+    <TableContainer component={Paper}>
+    <Table className={classes1.table} aria-label="simple table">
+      <TableHead>
+        <TableRow>
+          <TableCell>Name</TableCell>
+          <TableCell align="right">Weight</TableCell>
+          <TableCell align="right">Price</TableCell>
+          <TableCell align="right">Action</TableCell>
+          
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {allProducts.map((product) => (
+          <TableRow key={product._id} id="product-row">
+            <TableCell component="th" scope="row">
+              {product.name}
+            </TableCell>
+            <TableCell align="right">{product.weight}</TableCell>
+            <TableCell align="right">${product.price}</TableCell>
+            <TableCell align="right"><CreateIcon color="default" style={{cursor:'pointer'}}/><DeleteIcon color="secondary" style={{cursor:'pointer'}} onClick={()=>{productDelete(product._id)}}/></TableCell>
             
           </TableRow>
-        </TableHead>
-        <TableBody>
-          {allProducts.map((product) => (
-            <TableRow key={product._id} id="product-row">
-              <TableCell component="th" scope="row">
-                {product.name}
-              </TableCell>
-              <TableCell align="right">{product.weight}</TableCell>
-              <TableCell align="right">${product.price}</TableCell>
-              <TableCell align="right"><CreateIcon color="default" style={{cursor:'pointer'}}/><DeleteIcon color="secondary" style={{cursor:'pointer'}} onClick={()=>{productDelete(product._id)}}/></TableCell>
-              
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        ))}
+      </TableBody>
+    </Table>
+  </TableContainer>
+
+  ):(<Spinner className="loader" animation="border" variant="info" />)
+}
+
+        
 
         </div>
 
@@ -275,7 +290,10 @@ const handleClick=(index)=>{
         <input id='product-image' type="file"  name="exampleRequired" onChange={handleImageUpload}/>
         </div>
         </div>
-        <input className="save-button" type="submit" value="Save"/>
+        {
+          isImageConverted && imageURL!==null?(<input className="save-button" type="submit" value="Save"/>):(<input style={{cursor:'not-allowed'}} className="save-button" type="submit" value="Save" disabled/>)
+        }
+        
         </form>
       </main>
     </div>

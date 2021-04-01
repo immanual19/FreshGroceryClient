@@ -88,10 +88,22 @@ const CheckoutProduct = () => {
                   <TableCell align="right">1</TableCell>
                   <TableCell align="right">${price}</TableCell>
                 </TableRow>
-                
+                <TableRow>
+                <TableCell style={{fontWeight:'bolder'}}>Total:</TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right">${price}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                <Button style={{float:'right'}} onClick={processOrder} variant="contained" color="secondary">Checkout</Button>
+                </TableCell>
+                </TableRow>
             </TableBody>
           </Table>
-          <Button style={{float:'right'}} onClick={processOrder} variant="contained" color="secondary">Checkout</Button>
         </TableContainer>
         }
         {
@@ -112,7 +124,12 @@ const CheckoutProduct = () => {
                   <TableCell align="right">1</TableCell>
                   <TableCell align="right">${price}</TableCell>
                 </TableRow>
-                <Button style={{float:'right'}} variant="contained" color="secondary"><FontAwesomeIcon style={{marginRight:'5px'}} icon={faDownload}/> Download Invoice</Button>
+                <TableRow>
+                <TableCell style={{fontWeight:'bolder'}} align="left">Total</TableCell>
+                  <TableCell align="right"></TableCell>
+                  <TableCell align="right">${price}</TableCell>
+                </TableRow>
+                <Button style={{float:'right'}} variant="contained" color="secondary"><FontAwesomeIcon style={{marginRight:'5px'}} icon={faDownload}/>Download Invoice</Button>
             </TableBody>
           </Table>
         </TableContainer>

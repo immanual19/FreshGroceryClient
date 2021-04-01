@@ -22,8 +22,11 @@ const OrderHistory = () => {
     useEffect(()=>{
         fetch(`https://shrouded-castle-21272.herokuapp.com/myorderhistory/${myInfo.email}`)
         .then(res=>res.json())
-        .then(data=>setMyOrderHistory(data))
-        setLoadingHistory(true);
+        .then(data=>{
+          setMyOrderHistory(data);
+          setLoadingHistory(true);
+        })
+        
     },[])
     return (
         <div className="order-history">
