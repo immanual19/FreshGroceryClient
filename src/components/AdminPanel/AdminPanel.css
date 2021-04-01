@@ -26,3 +26,6 @@
     color: white;
     float: right;
 }
+.save-button:focus{
+    outline: none;
+}
