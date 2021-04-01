@@ -26,26 +26,26 @@ localStorage.setItem('freshGroceryUser',JSON.stringify(loggedOutUserInfo));
 window.location.reload();
 }
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <Link to="/"><a class="navbar-brand" href="#">FreshGrocery</a></Link>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div className="container-fluid">
+    <Link to="/"><a className="navbar-brand" href="#">FreshGrocery</a></Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-      <Link style={{textDecoration:'none'}} to="/"><li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav ml-auto">
+      <Link style={{textDecoration:'none'}} to="/"><li className="nav-item">
+          <a className="nav-link" href="#">Home</a>
         </li></Link>
 
-        <Link style={{textDecoration:'none'}} to={'/orderhistory'}><li class="nav-item">
-          <a class="nav-link" href="#">Orders</a>
+        <Link style={{textDecoration:'none'}} to={'/orderhistory'}><li className="nav-item">
+          <a className="nav-link" href="#">Orders</a>
         </li></Link>
-        <Link style={{textDecoration:'none'}} to="/admin"><li class="nav-item">
-          <a class="nav-link" href="#">Admin</a>
+        <Link style={{textDecoration:'none'}} to="/admin"><li className="nav-item">
+          <a className="nav-link" href="#">Admin</a>
         </li></Link>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Deals</a>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Deals</a>
         </li>
         {
           parsedFreshGroceryUser.isSignedIn?<img onClick={handleLogOut} className="avatar-face" src={loginImage} alt=""/>:<Link style={{textDecoration:'none'}} to="/login"><Button variant="contained" color="secondary">Login</Button></Link>

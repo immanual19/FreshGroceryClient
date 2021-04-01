@@ -9,6 +9,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Button } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import './CheckoutProduct.css';
 const useStyles = makeStyles({
     table: {
@@ -110,7 +112,7 @@ const CheckoutProduct = () => {
                   <TableCell align="right">1</TableCell>
                   <TableCell align="right">${price}</TableCell>
                 </TableRow>
-                
+                <Button style={{float:'right'}} variant="contained" color="secondary"><FontAwesomeIcon style={{marginRight:'5px'}} icon={faDownload}/> Download Invoice</Button>
             </TableBody>
           </Table>
         </TableContainer>
