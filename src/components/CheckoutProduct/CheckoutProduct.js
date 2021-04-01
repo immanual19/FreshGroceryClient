@@ -37,7 +37,7 @@ const CheckoutProduct = () => {
     const processOrder=()=>{
       const userFromLocalStorage=JSON.parse(localStorage.getItem('freshGroceryUser'));
       
-      const orderInfo={customerName:userFromLocalStorage.name,customerEmail:userFromLocalStorage.email,productName:name,productPrice:price, dateOrdered: new Date()
+      const orderInfo={customerName:userFromLocalStorage.name,customerEmail:userFromLocalStorage.email,productName:name,productPrice:price, dateOrdered: new Date().toString('YYYY-MM-DDTHH:mm')
     };
 
     fetch('https://shrouded-castle-21272.herokuapp.com/processorder',{
