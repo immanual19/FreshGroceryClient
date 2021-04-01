@@ -243,7 +243,7 @@ const handleClick=(index)=>{
                 {product.name}
               </TableCell>
               <TableCell align="right">{product.weight}</TableCell>
-              <TableCell align="right">{product.price}</TableCell>
+              <TableCell align="right">${product.price}</TableCell>
               <TableCell align="right"><CreateIcon color="default" style={{cursor:'pointer'}}/><DeleteIcon color="secondary" style={{cursor:'pointer'}} onClick={()=>{productDelete(product._id)}}/></TableCell>
               
             </TableRow>
