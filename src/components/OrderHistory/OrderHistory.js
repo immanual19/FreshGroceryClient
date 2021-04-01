@@ -16,21 +16,20 @@ const useStyles = makeStyles({
 });
 const OrderHistory = () => {
     const classes = useStyles();
-    const [loading,setLoading]=useState(false);
+    const [loadingHistory,setLoadingHistory]=useState(false);
     const [myOrderHistory,setMyOrderHistory]=useState([]);
     const myInfo=JSON.parse(localStorage.getItem('freshGroceryUser'));
-    console.log("History: ",myInfo);
     useEffect(()=>{
         fetch(`https://shrouded-castle-21272.herokuapp.com/myorderhistory/${myInfo.email}`)
         .then(res=>res.json())
         .then(data=>setMyOrderHistory(data))
-        setLoading(true);
+        setLoadingHistory(true);
     },[])
     return (
         <div className="order-history">
 
         {
-          loading? (
+          loadingHistory ? (
             <div>
             <h1>Order History</h1>
             <TableContainer component={Paper}>
@@ -61,12 +60,7 @@ const OrderHistory = () => {
         </TableContainer>
         </div>
           ):(<Spinner className="loader" animation="border" variant="info" />)
-        }
-
-
-
-
-        
+        }    
     </div>
     );
 };

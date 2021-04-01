@@ -4,7 +4,7 @@ import './ProductCard.css';
 import { Link, useHistory } from 'react-router-dom';
 const ProductCard = (props) => {
     
-    const {_id,name,weight,price,imageURL}=props.product;
+    const {_id,name,price,imageURL}=props.product;
     const history=useHistory();
     const handleClick=(id)=>{
         const url=`/checkoutproduct/${id}`;

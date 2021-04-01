@@ -34,21 +34,21 @@ window.location.reload();
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-      <Link to="/"><li class="nav-item">
+      <Link style={{textDecoration:'none'}} to="/"><li class="nav-item">
           <a class="nav-link" href="#">Home</a>
         </li></Link>
 
-        <Link to={'/orderhistory'}><li class="nav-item">
+        <Link style={{textDecoration:'none'}} to={'/orderhistory'}><li class="nav-item">
           <a class="nav-link" href="#">Orders</a>
         </li></Link>
-        <Link to="/admin"><li class="nav-item">
+        <Link style={{textDecoration:'none'}} to="/admin"><li class="nav-item">
           <a class="nav-link" href="#">Admin</a>
         </li></Link>
         <li class="nav-item">
           <a class="nav-link" href="#">Deals</a>
         </li>
         {
-          parsedFreshGroceryUser.isSignedIn?<img onClick={handleLogOut} className="avatar-face" src={loginImage} alt=""/>:<Link to="/login"><Button variant="contained" color="secondary">Login</Button></Link>
+          parsedFreshGroceryUser.isSignedIn?<img onClick={handleLogOut} className="avatar-face" src={loginImage} alt=""/>:<Link style={{textDecoration:'none'}} to="/login"><Button variant="contained" color="secondary">Login</Button></Link>
         }
         
       </ul>

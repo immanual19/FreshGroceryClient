@@ -11,8 +11,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import facebook from '../../icons/facebook.png';
-import google from '../../icons/google.png';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebase.config';
@@ -20,12 +18,7 @@ import { useHistory, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './SignIn.css';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 if(firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
   }
@@ -41,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -71,7 +64,7 @@ const handleFbSignIn=()=>{
     parsedGetUserInfo.email=user.email;
     parsedGetUserInfo.isSignedIn=true;
     localStorage.setItem('freshGroceryUser',JSON.stringify(parsedGetUserInfo));
-    console.log(user);
+    
    
     history.replace(from);
     window.location.reload();
@@ -109,7 +102,6 @@ const handleGoogleSignIn=()=>{
     parsedGetUserInfo.email=user.email;
     parsedGetUserInfo.isSignedIn=true;
     localStorage.setItem('freshGroceryUser',JSON.stringify(parsedGetUserInfo));
-    console.log("google user is: ",user);
     //window.location.reload();
     history.replace(from);
     window.location.reload();

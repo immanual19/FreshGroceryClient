@@ -9,22 +9,14 @@ import './SignUp.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import facebook from '../../icons/facebook.png';
-import google from '../../icons/google.png';
 import firebase from "firebase/app";
 import "firebase/auth";
 import { useHistory, useLocation } from 'react-router';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import firebaseConfig from '../../firebase.config';
 if(firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
@@ -72,7 +64,7 @@ export default function SignUp() {
     parsedGetUserInfo.email=user.email;
     parsedGetUserInfo.isSignedIn=true;
     localStorage.setItem('freshGroceryUser',JSON.stringify(parsedGetUserInfo));
-    console.log(user);
+ 
     //window.location.reload();
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var accessToken = credential.accessToken;
@@ -110,7 +102,7 @@ const handleGoogleSignIn=()=>{
     parsedGetUserInfo.email=user.email;
     parsedGetUserInfo.isSignedIn=true;
     localStorage.setItem('freshGroceryUser',JSON.stringify(parsedGetUserInfo));
-    console.log("google user is: ",user);
+    
     history.replace(from);
     //window.location.reload();
     window.location.reload();

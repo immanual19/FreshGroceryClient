@@ -1,5 +1,4 @@
-import userEvent from '@testing-library/user-event';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router';
 const PrivateRoute = ({ children, ...rest }) => {
     const currentUser=localStorage.getItem('freshGroceryUser');

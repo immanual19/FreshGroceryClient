@@ -27,12 +27,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 const drawerWidth = 240;
 const useStyles1 = makeStyles({
   table: {
@@ -77,7 +72,7 @@ function AdminPanel(props) {
   const classes = useStyles();
   const classes1 = useStyles1();
   const theme = useTheme();
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const [imageURL, setIMageURL] = useState(null);
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [currentOperation,setCurrentOperation]=useState(false);
@@ -105,7 +100,7 @@ const handleClick=(index)=>{
 }
   const drawer = (
     <div>
-   <Link to="/"><h3 style={{color:'goldenrod'}}>FreshGrocery</h3></Link>
+   <Link style={{textDecoration:'none',marginTop:'10px'}} to="/"><h3 style={{color:'goldenrod'}}>FreshGrocery</h3></Link>
       <div className={classes.toolbar} />
       <Divider />
       <List>
@@ -197,7 +192,7 @@ const handleClick=(index)=>{
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        
         <Hidden smUp implementation="css">
           <Drawer
             container={container}
@@ -209,7 +204,7 @@ const handleClick=(index)=>{
               paper: classes.drawerPaper,
             }}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
             }}
           >
             {drawer}
@@ -288,10 +283,7 @@ const handleClick=(index)=>{
 }
 
 AdminPanel.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
+
   window: PropTypes.func,
 };
 

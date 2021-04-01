@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core';
 import React from 'react';
 import './SearchBar.css';
 import { useLocation } from 'react-router-dom';
-const SearchBar = (props) => {
+const SearchBar = () => {
     let location=useLocation();
     if(location.pathname==="/"){
         return (

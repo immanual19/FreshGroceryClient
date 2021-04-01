@@ -50,7 +50,7 @@ const CheckoutProduct = () => {
     .catch(err=>{
       alert('Error. Order could not be placed');
     })
-    console.log("Order Summary is: ",orderInfo);
+    
   }
     return (
       <div className="checkout-product">
