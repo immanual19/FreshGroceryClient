@@ -20,6 +20,9 @@ const CheckoutProduct = () => {
     const classes = useStyles();
     const {pdId}=useParams();
     const [singleProduct,setSingleProduct]=useState([]);
+    const [orderPlaced,setOrderPlaced]=useState(false);
+    const userFromLocalStorage=JSON.parse(localStorage.getItem('freshGroceryUser'));
+    const userName=userFromLocalStorage.name;
     useEffect(()=>{
         const url=`https://shrouded-castle-21272.herokuapp.com/singleproduct/${pdId}`;
         fetch(url)
@@ -31,6 +34,7 @@ const CheckoutProduct = () => {
     
     const processOrder=()=>{
       const userFromLocalStorage=JSON.parse(localStorage.getItem('freshGroceryUser'));
+      
       const orderInfo={customerName:userFromLocalStorage.name,customerEmail:userFromLocalStorage.email,productName:name,productPrice:price, dateOrdered: new Date()
     };
 
@@ -44,7 +48,7 @@ const CheckoutProduct = () => {
     .then(res=>res.json())
     .then(data=>{
       if(data){
-        alert('Order placed Successfully');
+        setOrderPlaced(true);
       }
     })
     .catch(err=>{
@@ -54,29 +58,63 @@ const CheckoutProduct = () => {
   }
     return (
       <div className="checkout-product">
-      <h1>Checkout</h1>
-        <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Description</TableCell>
-            <TableCell align="right">Quantity</TableCell>
-            <TableCell align="right">Price</TableCell>
-            
-          </TableRow>
-        </TableHead>
-        <TableBody>
-            <TableRow>
-              
-              <TableCell align="left">{name}</TableCell>
-              <TableCell align="right">1</TableCell>
-              <TableCell align="right">${price}</TableCell>
-            </TableRow>
-            
-        </TableBody>
-      </Table>
-      <Button style={{float:'right'}} onClick={processOrder} variant="contained" color="secondary">Checkout</Button>
-    </TableContainer>
+
+      {
+        orderPlaced && <p> Dear <span style={{color:'green'}}><i>{userName}</i></span>, your order has been placed successfully. Thank you for shopping with us.</p>
+      }
+      {
+        !orderPlaced && <h1>Checkout</h1>
+      }
+      {
+        orderPlaced && <h1>Your ordered item information is given below:</h1>
+      }
+        {
+          !orderPlaced && <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Description</TableCell>
+                <TableCell align="right">Quantity</TableCell>
+                <TableCell align="right">Price</TableCell>
+                
+              </TableRow>
+            </TableHead>
+            <TableBody>
+                <TableRow>
+                  
+                  <TableCell align="left">{name}</TableCell>
+                  <TableCell align="right">1</TableCell>
+                  <TableCell align="right">${price}</TableCell>
+                </TableRow>
+                
+            </TableBody>
+          </Table>
+          <Button style={{float:'right'}} onClick={processOrder} variant="contained" color="secondary">Checkout</Button>
+        </TableContainer>
+        }
+        {
+          orderPlaced && <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Description</TableCell>
+                <TableCell align="right">Quantity</TableCell>
+                <TableCell align="right">Price</TableCell>
+                
+              </TableRow>
+            </TableHead>
+            <TableBody>
+                <TableRow>
+                  
+                  <TableCell align="left">{name}</TableCell>
+                  <TableCell align="right">1</TableCell>
+                  <TableCell align="right">${price}</TableCell>
+                </TableRow>
+                
+            </TableBody>
+          </Table>
+        </TableContainer>
+        }
     </div>
     );
 }
