@@ -124,7 +124,7 @@ const handleClick=(index)=>{
       .then(data=>setAllProducts(data))
   },[])
   const productDelete=(id)=>{
-      console.log('This product will be deleted: ',id);
+      
       fetch(`https://shrouded-castle-21272.herokuapp.com/deletesingleproduct/${id}`,{
           method: 'DELETE'
       })
@@ -140,7 +140,7 @@ const handleClick=(index)=>{
   const onSubmit = data => {
     const productData={...data};
     productData.imageURL=imageURL;
-    console.log(productData);
+    
     const url='https://shrouded-castle-21272.herokuapp.com/addProduct';
     fetch(url,{
         method: 'POST',
@@ -162,17 +162,17 @@ const handleClick=(index)=>{
     })
 };
   const handleImageUpload=event=>{
-    console.log(event.target.files[0]);
+    
     const imageData=new FormData();
     imageData.set('key','df37e18a03602906e48312132d91183f');
     imageData.append('image',event.target.files[0]);
     axios.post('https://api.imgbb.com/1/upload', imageData)
     .then(function (response) {
-        console.log(response.data.data.display_url);
+        
       setIMageURL(response.data.data.display_url);
     })
     .catch(function (error) {
-      console.log(error);
+      
     });
     }
   return (

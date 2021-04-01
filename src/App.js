@@ -1,12 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
 import SearchBar from './components/SearchBar/SearchBar';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Shop from './components/Shop/Shop';
 import SignIn from './components/SignIn/SignIn';
