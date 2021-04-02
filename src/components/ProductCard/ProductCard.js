@@ -5,7 +5,6 @@ import { Link, useHistory } from 'react-router-dom';
 const ProductCard = (props) => {
     
     const {_id,name,price,weight,imageURL}=props.product;
-    console.log(props.product.weight);
     const history=useHistory();
     const handleClick=(id)=>{
         const url=`/checkoutproduct/${id}`;
