@@ -2,14 +2,14 @@
 
 1. This project is called FreshGrocery.
 2. It can be referred as the most simplest version of an e-commerce site.
-3. User must login with his/her Facebook/Google to access all the facilities FreshGrocery has to offer.
+3. User must login with his/her Facebook/Google account to access all the facilities FreshGrocery has to offer.
 4. I (A. Immanual Sarker) own everything of this website (https://full-stack-client-immanual19.web.app/) except product photos and design idea.
 5. This project was developed for educational purpose only.
 
 # Functionalities
 
 1. Buy product.
-2. Add product. (After uploading (by clicking on choose file option) the image, please wait for atleast 5 to 10 seconds before clicking on the save button. Because, it may take 5 to 10 seconds for imagebb to host your product photo and generate the photo link.)
+2. Add product.
 3. Delete product.
 4. Edit product (This is not functional yet).
 5. See order history.
