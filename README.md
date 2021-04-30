@@ -39,3 +39,29 @@
 # Resume Link
 
 1. https://drive.google.com/file/d/1zUz2EkrmaQ6MDOnxgxlRlfOsR4i8VE9M/view
+
+# Screenshots
+
+# Home
+
+![Alt text](https://raw.githubusercontent.com/immanual19/FreshGroceryClient/main/src/Screenshot/Home.png "Optional title")
+
+# Checkout
+
+![Alt text](https://raw.githubusercontent.com/immanual19/FreshGroceryClient/main/src/Screenshot/Checkout.png "Optional title")
+
+# Order Confirmation
+
+![Alt text](https://raw.githubusercontent.com/immanual19/FreshGroceryClient/main/src/Screenshot/OrderConfirm.png "Optional title")
+
+# Add Product
+
+![Alt text](https://raw.githubusercontent.com/immanual19/FreshGroceryClient/main/src/Screenshot/AddProduct.png "Optional title")
+
+# Manage Product
+
+![Alt text](https://raw.githubusercontent.com/immanual19/FreshGroceryClient/main/src/Screenshot/ManageProduct.png "Optional title")
+
+# Login
+
+![Alt text](https://raw.githubusercontent.com/immanual19/FreshGroceryClient/main/src/Screenshot/Login.png "Optional title")
